@@ -14,6 +14,7 @@ public class ArithmeticDemo2 {
         firstNumber = input.nextDouble();
         System.out.print("Please enter another double: ");
         secondNumber = input.nextDouble();
+        Scanner.close();
         sum = firstNumber + secondNumber;
         difference = firstNumber - secondNumber;
         average = sum/2;
