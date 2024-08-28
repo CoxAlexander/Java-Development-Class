@@ -9,7 +9,7 @@ public class ChiliToGo {
         final int CHILDPRICE = 4;
         int childNum;
         int adultNum;
-        int sum;
+        double sum;
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the number of children: ");
         childNum = input.nextInt();
@@ -19,7 +19,7 @@ public class ChiliToGo {
 
         sum = (childNum*CHILDPRICE) + (adultNum*ADULTPRICE);
         
-        System.out.println(sum);
+        System.out.printf("The total revenue: $%.2f\n", sum);
 
     }
 }

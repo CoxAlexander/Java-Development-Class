@@ -11,7 +11,7 @@ public class ChiliToGoProfit {
         final double CHILDCOST = 3.10;
         int childNum;
         int adultNum;
-        int Total;
+        double Total;
         double profit;
         double TotalCost;
         Scanner input = new Scanner(System.in);
@@ -22,8 +22,8 @@ public class ChiliToGoProfit {
         Total = (childNum*CHILDPRICE) + (adultNum*ADULTPRICE);
         TotalCost = (childNum*CHILDCOST)+(adultNum*ADULTCOST);
         profit = Total-TotalCost;
-        System.out.println(Total);
-        System.out.println(profit);
+        System.out.printf("The total revenue: $%.2f\n", Total);
+        System.out.printf("The total profits: $%.2f\n", profit);
 
     }
 }
