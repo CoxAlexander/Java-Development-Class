@@ -3,6 +3,13 @@
 //Alexander Cox
 
 public class SpaService{
+    public SpaService(){
+        this("XXX", 0);
+    } 
+    public SpaService(String desc, double pr){
+        serviceDescription = desc;
+        price = pr;
+    }
     private String serviceDescription;
     private double price;
     public void setServiceDescription(String service) {
@@ -17,4 +24,5 @@ public class SpaService{
     public double getPrice(){
         return price;
     }
+    
 }
