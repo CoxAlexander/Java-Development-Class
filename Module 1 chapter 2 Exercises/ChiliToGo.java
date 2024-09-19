@@ -20,6 +20,6 @@ public class ChiliToGo {
         sum = (childNum*CHILDPRICE) + (adultNum*ADULTPRICE);
         
         System.out.printf("The total revenue: $%.2f\n", sum);
-
+        input.close();
     }
 }

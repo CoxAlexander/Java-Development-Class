@@ -24,6 +24,6 @@ public class ChiliToGoProfit {
         profit = Total-TotalCost;
         System.out.printf("The total revenue: $%.2f\n", Total);
         System.out.printf("The total profits: $%.2f\n", profit);
-
+        input.close();
     }
 }
