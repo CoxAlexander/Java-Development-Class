@@ -1,30 +1,33 @@
 //TestTeam.java
-//9/18/2024
+//9/23/2024
 //Alexander Cox
+
 import java.util.Scanner;
 public class TestTeam{
     public static void main(String[] args) {
-        String school;
-        String teamName;
-        String TeamSport;
-        Team firstTeam = new Team();
-        //Team secondTeam = new Team();
-        //Team thirdTeam = new Team();
+        Team team1 = setTeamData(); 
+        Team team2 = setTeamData(); 
+        Team team3 = setTeamData();
+        display(team1);
+        display(team2);
+        display(team3);
+    }
+    public static Team setTeamData(){
+        Scanner input = new Scanner(System.in);
+        Team temp;
+        String name, sport, mascot;
+        System.out.print("Enter school name:");
+        name = input.nextLine();
+        System.out.print("Enter sport:");
+        sport = input.nextLine();
+        System.out.print("Enter mascot: ");
+        mascot = input.nextLine();
 
-        Scanner keyboard = new Scanner(System.in);
-        System.out.print("Enter the first team's School Name: ");
-        school = keyboard.nextLine();
-        System.out.print("Enter the first team's name: ");
-        teamName = keyboard.nextLine();
-        System.out.print("Enter the first team's sport: ");
-        TeamSport = keyboard.nextLine();
+        temp = new Team(name,sport,mascot);
+        return temp;
+    }
+    public static void display(Team t){
+        System.out.println(t.gethsName() + " " + t.getSport() + " team "  +t.getTeamName() + "\n Our motto is " + t.MOTTO);
 
-        firstTeam.setSchool(school);
-        firstTeam.setSport(TeamSport);
-        firstTeam.setTeam(teamName);
-
-        System.out.println("The team name: " + firstTeam.getTeam()+ " ,school: " + firstTeam.getSchool() + " ,sport: " + firstTeam.getSport() + " ,motto: " + firstTeam.getMotto());
-
-        keyboard.close();
     }
 }
