@@ -5,3 +5,6 @@ drink,0
 walk,0
 drink,0
 run,0
+bathroom,1
+clean the toliet,0
+talk,0

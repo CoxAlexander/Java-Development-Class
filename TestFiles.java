@@ -1,4 +1,4 @@
-//Last edit: 9/18/2024
+//Last edit: 10/5/2024
 //TestFiles.java
 //Alexander Cox
 import java.io.File;
@@ -13,7 +13,6 @@ public class TestFiles {
         boolean completed = false;          //Will be if the task is completed
         String completedStr;
         String comma = ",";
-        
         int x;
         String newLine = "\n";      //To make the tasks on different lines
         ArrayList<String> taskList = new ArrayList<String>();   //Arraylist creation
@@ -23,7 +22,19 @@ public class TestFiles {
         Tasks firstTasks = new Tasks();                 
         taskList.addAll(ReadFileTask(fileName));            //set the arraylist to add every thing that was in the list already
         completionList.addAll(ReadFileComp(fileName));
+        System.out.println(completionList);                //testing print
         System.out.print(taskList);                     //testing print    
+        for (x = 0; x<completionList.size(); ++x){
+            if (completionList.get(x) == false){
+                completed = false;
+                firstTasks.setCompleted(completed);
+            }
+            else{
+                completed = true;
+                firstTasks.setCompleted(completed);
+            }
+        }
+        System.out.println(firstTasks.getCompleted());
         System.out.print("Enter a task you want to do:");
         currentTask = keyboard.nextLine();
         currentTask = currentTask + comma;
@@ -39,7 +50,6 @@ public class TestFiles {
         firstTasks.setCompleted(completed);
         firstTasks.setTask(currentTask);                //set to the task object
         taskList.add(firstTasks.getTask() + firstTasks.getCompleted());
-
         try {
           FileWriter myWriter = new FileWriter(fileName, true); //write to the file with append set to true
             myWriter.write(currentTask);                                  //write the current task to the file
@@ -50,15 +60,12 @@ public class TestFiles {
             String[] tasks = new String[taskList.size()];
             for (int y=0 ;y <taskList.size(); ++y){
                 tasks[y] = taskList.get(y);
-
             }
-
             DisplayTasks(tasks);
         } catch (IOException e) {
           System.out.println("An error occurred.");
           e.printStackTrace();
         }
-        
     }
     public static ArrayList ReadFileTask(String fileTitle){ //Read the current tasks already saved to the file
         ArrayList<String> tasks = new ArrayList<String>(); // Create a arrarylist
@@ -75,7 +82,6 @@ public class TestFiles {
         } catch (IOException e) {               //catch an exception
             System.out.println("An error occurred.");
             e.printStackTrace();
-        
         }
         return tasks;                           //return the arrarylist
     }
@@ -105,10 +111,7 @@ public class TestFiles {
             } catch (IOException e) {               //catch an exception
                 System.out.println("An error occurred.");
                 e.printStackTrace();
-            
             }
             return completionBol;          
-    }
-
-    
+    }   
 }
