@@ -8,3 +8,4 @@ run,0
 bathroom,1
 clean the toliet,0
 talk,0
+homework,0

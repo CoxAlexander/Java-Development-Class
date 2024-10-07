@@ -3,24 +3,44 @@
 //Alexander Cox
 //Error: throws error if something is in txt file that isnt suppoed to 
 
+import java.awt.*;
+import java.awt.event.*;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.*;
-import java.lang.StringBuilder;
-public class TaskList{
+
+public class TaskList extends JFrame implements ItemListener{
+    public TaskList(ArrayList<Tasks> tasks) {
+        
+        int counter = 0;
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+        
+        
+        for(counter = 0; counter < tasks.size(); ++counter){
+            JCheckBox TaskBox = new JCheckBox(tasks.get(counter).getTask(), tasks.get(counter).getCompleted());
+            add(TaskBox);
+        }
+        
+        
+    }
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         String fileName = "Final Project\\Task.txt";
         int counter = 0;
         String chore;
+        final int WIDTH = 300;
+        final int HEIGHT = 200;
         Boolean compBool;
-        ArrayList<Tasks> taskList = new ArrayList<Tasks>();
-        ArrayList<Boolean> completionList = new ArrayList<Boolean>();
-        ArrayList<String> tasks = new ArrayList<String>();
+        ArrayList<Tasks> taskList = new ArrayList<>();
+        ArrayList<Boolean> completionList = new ArrayList<>();
+        ArrayList<String> tasks = new ArrayList<>();
         tasks.addAll(ReadFileTask(fileName));
         completionList.addAll(ReadFileComp(fileName));
+        
+        
         for(counter = 0; counter<tasks.size(); ++counter){
             compBool = completionList.get(counter);
             chore = tasks.get(counter);
@@ -29,11 +49,14 @@ public class TaskList{
         for(counter = 0; counter<taskList.size(); ++counter){
             System.out.println(taskList.get(counter).getCompleted() + " " + taskList.get(counter).getTask());
         }
-       
-        DisplayTasks(taskList);
+        TaskList aFrame = new TaskList(taskList);
+        aFrame.setSize(WIDTH,HEIGHT);
+        aFrame.setVisible(true);
+        
     }
+    @SuppressWarnings("rawtypes")
     public static ArrayList ReadFileTask(String fileTitle){ //Read the current tasks already saved to the file
-        ArrayList<String> tasks = new ArrayList<String>(); // Create a arrarylist
+        ArrayList<String> tasks = new ArrayList<>(); // Create a arrarylist
         
         String [] tempArray;
         try {
@@ -46,13 +69,14 @@ public class TaskList{
         }
         } catch (IOException e) {               //catch an exception
             System.out.println("An error occurred.");
-            e.printStackTrace();
+            
         }
         return tasks;                           //return the arrarylist
     }
+    @SuppressWarnings("rawtypes")
     public static ArrayList ReadFileComp(String fileTitle){
-        ArrayList<String> completionNum = new ArrayList<String>();
-        ArrayList<Boolean> completionBol = new ArrayList<Boolean>();
+        ArrayList<String> completionNum = new ArrayList<>();
+        ArrayList<Boolean> completionBol = new ArrayList<>();
         String [] tempArrary;
         int x;
         try {
@@ -78,13 +102,14 @@ public class TaskList{
             }
             } catch (IOException e) {               //catch an exception
                 System.out.println("An error occurred.");
-                e.printStackTrace();
+                
             } 
             
             return completionBol;          
     }   
-    public static void DisplayTasks(ArrayList<Tasks> tasks) {
+    public void DisplayTasks(ArrayList<Tasks> tasks)  {
         int counter = 0;
+        
         StringBuilder sb = new StringBuilder();
         for(counter = 0; counter < tasks.size(); ++counter){
             sb.append(tasks.get(counter).getTask());
@@ -98,6 +123,7 @@ public class TaskList{
         }
         JOptionPane.showMessageDialog(null, sb.toString());
     }
+    
     /*public static void WriteFile(ArrayList<Tasks> tasks){
         String compString;
         String newLine = "\n";
@@ -122,4 +148,9 @@ public class TaskList{
           e.printStackTrace();
         }    
     */
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
