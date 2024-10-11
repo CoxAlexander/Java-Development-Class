@@ -1,6 +1,6 @@
 public class Tasks {
-    private String task;
-    private Boolean completed;
+    private final  String task;
+    private final Boolean completed;
     
     public String getTask(){
         return task;

@@ -1,11 +1,6 @@
-sleep,0
-eat,0
-walk,1
-drink,0
-walk,0
-drink,0
-run,0
-bathroom,1
-clean the toliet,0
-talk,0
+pokemon,0
+read,0
+write,0
 homework,0
+poker,0
+poll,0
