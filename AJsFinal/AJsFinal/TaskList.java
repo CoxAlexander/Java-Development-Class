@@ -42,12 +42,13 @@ public class TaskList extends WriteFile {
         // Display the main task list GUI
         mainList(taskList);
     }
+
     public static void mainList(ArrayList<Tasks> tasks) {
         ArrayList<JCheckBox> checkList = new ArrayList<>();
         JFrame aFrame = new JFrame();
         int counter = 0;
         final int WIDTH = 350;
-        int HEIGHT = 300;
+        int HEIGHT = 100;
         aFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         aFrame.setLayout(null);
         JButton addTaskButton = new JButton("Add a Task");
